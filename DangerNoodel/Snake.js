@@ -36,7 +36,7 @@ function GameOver() {
 
    setTimeout(() => {
 
-      snakeHead.pos = new GameMaker.Vector2(150, 150)
+      snakeHead.pos = Window.pos
 
       CreateNewSnake()
       Death = false
@@ -101,7 +101,7 @@ function createApple() {
 
 createApple()
 
-var snakeHead = new GameMaker.ShapeSprite("SnakeHead", new GameMaker.Vector2(150, 150), new GameMaker.Vector2(15, 15), 0, "#66b07a")
+var snakeHead = new GameMaker.ShapeSprite("SnakeHead", Window.pos, new GameMaker.Vector2(15, 15), 0, "#66b07a")
 world.addobjects(snakeHead)
 
 CreateNewSnake()
