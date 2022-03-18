@@ -6,7 +6,7 @@ const MovmentVecter = {
 }
 
 var Death = false
-
+var Score = 0
 var Frame = 0
 
 function randomIntFromInterval(min, max) { // min and max included 
@@ -42,6 +42,7 @@ function GameOver() {
 
       CreateNewSnake()
       Death = false
+      Score = 0
 
    }, (10 * snakeHead.Body.length) + 1000);
 
@@ -112,6 +113,12 @@ Text.font = "Fredoka"
 Text.fontColor = "white"
 world.addobjects(Text)
 
+var ScoreText = new GameMaker.TextSprite("SnakeBody", new GameMaker.Vector2(50, 550), 0, "Score: ")
+ScoreText.font = "Fredoka"
+ScoreText.fontColor = "white"
+ScoreText.fontSize = '40'
+world.addobjects(ScoreText)
+
 new GameMaker.Plugins.Keyboard(world)
 
 window.addEventListener("keydown", function (e) {
@@ -143,6 +150,7 @@ setInterval(() => {
 
    Frame += 1
    FPS += 1
+   ScoreText.text = `Score: ${Score}`
 
    if (!Death) {
 
@@ -198,6 +206,7 @@ setInterval(() => {
             }
 
             snakeHead.MovementSpeed += 0.1
+            Score += 10
 
             apple.Move()
 
