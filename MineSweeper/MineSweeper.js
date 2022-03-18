@@ -16,24 +16,24 @@ function lerp(v0, v1, t) {
 function PreloadImages(){
 
    var UpdateImage = new Image(30, 30)
-   UpdateImage.src = '/Assets/minesweeper_Pressed.png'
+   UpdateImage.src = 'Assets/minesweeper_Pressed.png'
 
    var UpdateImage = new Image(30, 30)
-   UpdateImage.src = '/Assets/minesweeper_Flag.png'
+   UpdateImage.src = 'Assets/minesweeper_Flag.png'
 
    var UpdateImage = new Image(30, 30)
-   UpdateImage.src = '/Assets/minesweeper_Unpressed.png'
+   UpdateImage.src = 'Assets/minesweeper_Unpressed.png'
 
    var UpdateImage = new Image(30, 30)
-   UpdateImage.src = '/Assets/minesweeper_Bomb.png'
+   UpdateImage.src = 'Assets/minesweeper_Bomb.png'
 
    var UpdateImage = new Image(30, 30)
-   UpdateImage.src = '/Assets/minesweeper_BombBoom.png'
+   UpdateImage.src = 'Assets/minesweeper_BombBoom.png'
 
    for (let Y = 1; Y < 8; Y++) {
 
       var UpdateImage = new Image(30, 30)
-      UpdateImage.src = `/Assets/minesweeper_${Y}.png`  
+      UpdateImage.src = `Assets/minesweeper_${Y}.png`  
 
    }
 }
@@ -63,7 +63,7 @@ function TileClicked(world, ID , e, GameStateText) {
             SelectedObject.Pressed = true
 
             if (SelectedObject.BombCloseness == 0) {
-               SelectedObject.changeImage('/Assets/minesweeper_Pressed.png')
+               SelectedObject.changeImage('Assets/minesweeper_Pressed.png')
                
                var CloseTiles = [
                   world.objects.find( object => object.ID == SelectedObject.ID + 10 && object.Pressed == false && object.pos.distance(SelectedObject.pos) < 90),
@@ -85,7 +85,7 @@ function TileClicked(world, ID , e, GameStateText) {
                
             }
             if (SelectedObject.BombCloseness > 0) {
-               SelectedObject.changeImage(`/Assets/minesweeper_${SelectedObject.BombCloseness}.png`)
+               SelectedObject.changeImage(`Assets/minesweeper_${SelectedObject.BombCloseness}.png`)
             }
 
          }
@@ -99,7 +99,7 @@ function TileClicked(world, ID , e, GameStateText) {
 
          if (SelectedObject.Flaged == true){
    
-            SelectedObject.changeImage('/Assets/minesweeper_Flag.png')
+            SelectedObject.changeImage('Assets/minesweeper_Flag.png')
 
             //Game Win State
             if (world.objects.filter(object => object.Flaged == true && object.Bomb == true).length == GameState.BombCount) {
@@ -125,7 +125,7 @@ function TileClicked(world, ID , e, GameStateText) {
 
          } else {
 
-            SelectedObject.changeImage('/Assets/minesweeper_Unpressed.png')
+            SelectedObject.changeImage('Assets/minesweeper_Unpressed.png')
 
          }
       }
@@ -184,7 +184,7 @@ function EndGame(world, GameStateText){
    CouldBe.forEach( (tile, index) => {
 
       if(tile.Flaged) return
-      tile.changeImage('/Assets/minesweeper_BombBoom.png')
+      tile.changeImage('Assets/minesweeper_BombBoom.png')
    
    })   
 
@@ -222,7 +222,7 @@ function Startup() {
 
       for (let Y = 0; Y < 10; Y++) {
 
-         var Tile = new GameMaker.ImageSprite("TileObject", new GameMaker.Vecter2(45 + (X * 45), 45 + (Y * 45)), new GameMaker.Vecter2(45, 45), 0, '/Assets/minesweeper_Unpressed.png')
+         var Tile = new GameMaker.ImageSprite("TileObject", new GameMaker.Vecter2(45 + (X * 45), 45 + (Y * 45)), new GameMaker.Vecter2(45, 45), 0, 'Assets/minesweeper_Unpressed.png')
          Tile.ID = (Y + (10 * X))
          Tile.Pressed = false
          Tile.Bomb = false
