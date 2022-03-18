@@ -16,6 +16,8 @@ function randomIntFromInterval(min, max) { // min and max included
 //Make the world
 const world = new GameMaker.World(GameMaker.Init())
 
+world.backgroundColor = '#242424'
+
 var Window = new GameMaker.ShapeSprite("PlayWindow", new GameMaker.Vector2(300, 300), new GameMaker.Vector2(500, 500), 0, "#5e5e5e")
 world.addobjects(Window)
 
@@ -82,7 +84,6 @@ function CreateNewSnake() {
    Bodys.forEach(body => { world.objects.push(body) })
    Head.forEach(body => { world.objects.push(body) })
    world.objects.push(Apples)
-   //world.objects.push(FPSText)
 
 }
 
@@ -106,11 +107,9 @@ world.addobjects(snakeHead)
 
 CreateNewSnake()
 
-//world.backgroundColor = "#5e5e5e"
-
 var Text = new GameMaker.TextSprite("SnakeBody", new GameMaker.Vector2(1, 1), 0, "FPS: ")
 Text.font = "Fredoka"
-Text.fontColor = "black"
+Text.fontColor = "white"
 world.addobjects(Text)
 
 new GameMaker.Plugins.Keyboard(world)
